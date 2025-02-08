@@ -1,6 +1,8 @@
 --Set of the leader
 vim.g.mapleader =  " "
 
+local gocap = "~/go/bin/gocap"
+
 --Yanking configuration
 vim.keymap.set("x", "<A-p>", '"_dP')
 vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
@@ -62,6 +64,7 @@ vim.keymap.set("n", "<leader>rt", "i <Text style={App_Style.text}></Text><ESC>F<
 
 -- Navigation with tmux
 vim.keymap.set("n", "<C-p>", ":silent !tmux neww ~/sessionizer.sh<CR>")
+vim.keymap.set("n", "<leader>t", ":silent !~/floating_terminal.sh<CR>")
 vim.keymap.set("n", "<C-c>", ":silent !tmux neww ~/cheat_search.sh<CR>")
 
 --SQL Snippets
@@ -74,7 +77,13 @@ vim.keymap.set("i", "<C-t>b", "<th:block></th:block><ESC>F>i")
 vim.keymap.set("i", "<C-t>n", '<th:block th:replace="~{}"></th:block><ESC>F}i')
 vim.keymap.set("i", "<C-t>r", 'th:replace="~{}"<ESC>F}i')
 vim.keymap.set("i", "<C-t>e", '<th:block th:each="el, iterStat : ${}"><th:block><ESC>F}i')
-
---Go Spnippets
+--
+--Go Snippets
 vim.keymap.set("i", "<C-g>e", "if err != nil {<CR>return err<CR>}")
 
+-- PHP Snippets
+vim.keymap.set({"n"}, "<leader>qc", ":!~/go/bin/gocap json-ctrl -e -n ")
+vim.keymap.set({"n"}, "<leader>qh", ":!~/go/bin/gocap html-ctrl -e -n ")
+vim.keymap.set({"n"}, "<leader>qd", ":!~/go/bin/gocap dto -n ")
+vim.keymap.set({"n"}, "<leader>qs", ":!~/go/bin/gocap srv -e -n ")
+vim.keymap.set({"n"}, "<leader>qv", ":!~/go/bin/gocap validator -n ")

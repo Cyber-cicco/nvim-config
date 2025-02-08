@@ -46,6 +46,16 @@ if not vim.g.vscode then
 
     -- (Optional) Configure lua language server for neovim
     require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+        -- Add this configuration before lsp.setup()
+    require('lspconfig').tailwindcss.setup({
+        filetypes = { "templ", "html", "javascript", "css", "scss", "javascriptreact", "typescript", "typescriptreact" },
+        init_options = {
+            userLanguages = {
+                templ = "html"
+            }
+        },
+        root_dir = require('lspconfig').util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js'),
+    })
 
     lsp.ensure_installed({
         'tsserver',
@@ -55,7 +65,10 @@ if not vim.g.vscode then
         'clangd',
         'gopls',
         'templ',
+        'kotlin-language_server',
         'intelephense',
+        'gdtoolkit',
+        'tailwindcss-language-server',
     })
     lsp.setup()
 
