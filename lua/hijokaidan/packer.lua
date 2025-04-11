@@ -20,11 +20,21 @@ if not vim.g.vscode then
             requires = { { 'nvim-lua/plenary.nvim' } }
         }
         use('nvim-lua/plenary.nvim')
-        use('ThePrimeagen/harpoon')
         use('mbbill/undotree')
         use('tpope/vim-fugitive')
-        use("nvim-lua/plenary.nvim")
         use { 'm00qek/baleia.nvim', tag = 'v1.3.0' }
+        use {
+            '/home/hijokaidan/PC/ia-rpoon',
+            branch = "harpoon2",
+            as = 'harpoon2', -- This is optional, lets you refer to it as "harpoon" in your config
+            requires = { { "nvim-lua/plenary.nvim" } }
+        }
+        use {
+            "supermaven-inc/supermaven-nvim",
+            config = function()
+                require("supermaven-nvim").setup({})
+            end,
+        }
 
         use {
             "olexsmir/gopher.nvim",
@@ -40,7 +50,7 @@ if not vim.g.vscode then
             requires = {
                 -- LSP Support
                 { 'neovim/nvim-lspconfig' }, -- Required
-                {                          -- Optional
+                {                            -- Optional
                     'williamboman/mason.nvim',
                     run = function()
                         pcall(vim.cmd, 'MasonUpdate')
@@ -77,12 +87,5 @@ if not vim.g.vscode then
             requires = { 'nvim-tree/nvim-web-devicons', opt = true }
         }
         use('windwp/nvim-ts-autotag')
-        -- use 'Exafunction/codeium.vim'
-        use {
-            "supermaven-inc/supermaven-nvim",
-            config = function()
-                require("supermaven-nvim").setup({})
-            end,
-        }
     end)
 end

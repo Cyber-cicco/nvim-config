@@ -65,6 +65,7 @@ vim.keymap.set("n", "<leader>rt", "i <Text style={App_Style.text}></Text><ESC>F<
 -- Navigation with tmux
 vim.keymap.set("n", "<C-p>", ":silent !tmux neww ~/sessionizer.sh<CR>")
 vim.keymap.set("n", "<leader>t", ":silent !~/floating_terminal.sh<CR>")
+vim.keymap.set("n", "<C-S>", ":silent !rofi.sh<CR>")
 vim.keymap.set("n", "<C-c>", ":silent !tmux neww ~/cheat_search.sh<CR>")
 
 --SQL Snippets
