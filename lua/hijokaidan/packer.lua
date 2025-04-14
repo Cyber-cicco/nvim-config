@@ -24,11 +24,17 @@ if not vim.g.vscode then
         use('tpope/vim-fugitive')
         use { 'm00qek/baleia.nvim', tag = 'v1.3.0' }
         use {
-            '/home/hijokaidan/PC/ia-rpoon',
+            "ThePrimeagen/harpoon",
             branch = "harpoon2",
-            as = 'harpoon2', -- This is optional, lets you refer to it as "harpoon" in your config
+            as  = "harpoon",
             requires = { { "nvim-lua/plenary.nvim" } }
         }
+
+        use {
+            '/home/hijokaidan/PC/teleproompter',
+            as = 'teleproompter',
+        }
+
         use {
             "supermaven-inc/supermaven-nvim",
             config = function()

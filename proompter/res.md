@@ -1,3 +1,52 @@
+### Context :  ###
+
+This is my neovim config. I'm currently customizing it to implement LLMs into my workflow
+
+
+### Command Output 1: tree . ###
+
+.
+├── after
+│   └── plugin
+│       ├── autotag.lua
+│       ├── cmp.lua
+│       ├── colors.lua
+│       ├── fugitive.lua
+│       ├── gopher.lua
+│       ├── harpoon.lua
+│       ├── icons.lua
+│       ├── lsp.lua
+│       ├── lualine.lua
+│       ├── nodzcript-lsp.lua
+│       ├── null-ls.lua
+│       ├── nvim-tree.lua
+│       ├── rust-tools.lua
+│       ├── telescope.lua
+│       ├── treesitter.lua
+│       └── undotree.lua
+├── archive
+│   └── telescope.txt
+├── init.lua
+├── lua
+│   └── hijokaidan
+│       ├── filetypes.lua
+│       ├── packer_compiled.lua
+│       ├── packer.lua
+│       ├── remap.lua
+│       └── set.lua
+├── nvim-tree-lua.txt
+├── plugin
+├── proompter
+│   ├── ctx_main.md
+│   ├── inst_harpoon.md
+│   └── res.md
+└── sessionizer.sh
+
+7 directories, 28 files
+
+
+### after/plugin/harpoon.lua ###
+
 local harpoon = require("harpoon")
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)
@@ -201,7 +250,7 @@ local function show_all_lists_window()
     local content = {}
     
     -- Add header
-    table.insert(content, "ALL HARPOON LISTS")
+    table.insert(content, "PROMPT FILES LIST")
     table.insert(content, "================")
     table.insert(content, "")
     
@@ -435,3 +484,25 @@ end
 
 -- Add keybinding for telescope view of all lists
 vim.keymap.set("n", "<leader>ls", show_all_lists_telescope, { desc = "Show all harpoon lists in telescope" })
+
+
+### init.lua ###
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("hijokaidan.remap")
+require("hijokaidan.set")
+require("hijokaidan.filetypes")
+if not vim.g.vscode then
+  require("hijokaidan.packer_compiled")
+end
+
+
+
+### Instructions :  ###
+
+Organize the harpoon functions into a separate plugin with harpoon and it's dependencies as a dependency
+
+
+
