@@ -149,5 +149,5 @@ vim.keymap.set("n", "<leader>gL", enhanced_git_commits, { desc = "Enhanced git l
 vim.keymap.set("n", "<leader>gf", git_file_commits_with_checkout, { desc = "Git file history with checkout" })
 
 -- Additional useful git telescope commands
-vim.keymap.set("n", "<leader>gst", builtin.git_status, { desc = "Git status" })
+vim.keymap.set("n", "<leader>gt", builtin.git_status, { desc = "Git status" })
 vim.keymap.set("n", "<leader>gco", builtin.git_branches, { desc = "Git checkout branch" })
