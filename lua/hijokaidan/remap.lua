@@ -58,33 +58,12 @@ vim.keymap.set("i", "<C-f>", "()<ESC>i")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]);
 vim.keymap.set("n", "<leader>f", [[/<C-r><C-w><CR>]]);
 
--- React Snippets
-vim.keymap.set("n", "<leader>rs", "i style={}<ESC>i")
-vim.keymap.set("n", "<leader>rt", "i <Text style={App_Style.text}></Text><ESC>F<i")
-
 -- Navigation with tmux
-vim.keymap.set("n", "<C-p>", ":silent !tmux neww ~/sessionizer.sh<CR>")
+vim.keymap.set("n", "<C-f>", ":silent !tmux neww ~/sessionizer.sh<CR>")
 vim.keymap.set("n", "<leader>t", ":silent !~/floating_terminal.sh<CR>")
-vim.keymap.set("n", "<C-S>", ":silent !rofi.sh<CR>")
+vim.keymap.set("n", "<C-S>", ":silent !~/config/scripts/rofi.sh<CR>")
+vim.keymap.set("n", "<C-Q>", ":silent !svg-search.sh<CR>")
 vim.keymap.set("n", "<C-c>", ":silent !tmux neww ~/cheat_search.sh<CR>")
 
---SQL Snippets
-vim.keymap.set("n", "<leader>qc", "iCREATE TABLE nom_table(<CR>)<ESC>%hvb")
-vim.keymap.set("n", "<leader>qr", "inom_champ type_champ,<ESC>bbevb")
-vim.keymap.set("n", "<leader>qp", "iid INT(6) PRIMARY KEY NOT NULL,<ESC>")
-
---Thymeleaf Snippets
-vim.keymap.set("i", "<C-t>b", "<th:block></th:block><ESC>F>i")
-vim.keymap.set("i", "<C-t>n", '<th:block th:replace="~{}"></th:block><ESC>F}i')
-vim.keymap.set("i", "<C-t>r", 'th:replace="~{}"<ESC>F}i')
-vim.keymap.set("i", "<C-t>e", '<th:block th:each="el, iterStat : ${}"><th:block><ESC>F}i')
---
 --Go Snippets
 vim.keymap.set("i", "<C-g>e", "if err != nil {<CR>return err<CR>}")
-
--- PHP Snippets
-vim.keymap.set({"n"}, "<leader>qc", ":!~/go/bin/gocap json-ctrl -e -n ")
-vim.keymap.set({"n"}, "<leader>qh", ":!~/go/bin/gocap html-ctrl -e -n ")
-vim.keymap.set({"n"}, "<leader>qd", ":!~/go/bin/gocap dto -n ")
-vim.keymap.set({"n"}, "<leader>qs", ":!~/go/bin/gocap srv -e -n ")
-vim.keymap.set({"n"}, "<leader>qv", ":!~/go/bin/gocap validator -n ")
